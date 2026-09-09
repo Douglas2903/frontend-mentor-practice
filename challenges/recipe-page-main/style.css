@@ -161,3 +161,17 @@ td{
     font-weight: 700;
     color: var(--brown-800);
 }
+
+@media screen and (min-width: 81.875em) {
+    .recipe-card{
+        border-radius: 2rem;
+        max-width: 43.75em;
+        margin: 4rem auto;
+    }
+
+    .top-image{
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 1.5rem 1rem 0rem;
+    }
+}
