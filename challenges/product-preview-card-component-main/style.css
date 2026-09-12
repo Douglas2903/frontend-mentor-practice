@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --green-500: hsl(158, 36%, 37%);
+    --green-700: hsl(158, 42%, 18%);
+    --black: hsl(212, 21%, 14%);
+    --grey: hsl(228, 12%, 48%);
+    --cream: hsl(30, 38%, 92%);
+    --white: hsl(0, 0%, 100%);
+
+    --font-size: 14px;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--cream);
+}
+
+.container{
+    border-radius: .5rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 2rem;
+}
+
+img{
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.perfume, p{
+    color: var(--grey);
+}
+
+.perfume{
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+h1{
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--black);
+}
+
+p{
+    font-size: var(--font-size);
+}
+
+.prices-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.current-price{
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+    color: var(--green-500);
+}
+
+.old-price{
+    font-size: .8rem;
+    color: var(--grey);
+}
+
+button{
+    background-color: var(--green-500);
+    border: none;
+    border-radius: .5rem;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1rem;
+    font-weight: 700;
+}
+
+button:hover, button:focus{
+    background-color: var(--green-700);
+}
