@@ -118,3 +118,30 @@ button{
 button:hover, button:focus{
     background-color: var(--green-700);
 }
+
+@media screen and (min-width: 768px) {
+    .container{
+        flex-direction: row;
+        max-width: 770px;
+        align-items: stretch;
+    }
+
+    .image img{
+        aspect-ratio: 600 / 900;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+        border-top-right-radius: 0rem;
+        width: 100%;
+        height: auto;
+    }
+
+    .content{
+        gap: 4rem;
+        padding: 2rem; 
+        max-width: 20rem;
+    }
+
+    button{
+        margin-top: auto;
+    }
+}
