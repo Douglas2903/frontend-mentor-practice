@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --blue-500: hsl(215, 51%, 70%);
+    --cyan-400: hsl(178, 100%, 50%);
+    --blue-950: hsl(217, 54%, 11%); /* (main BG) */
+    --blue-900: hsl(216, 50%, 16%); /* (card BG) */
+    --blue-800: hsl(215, 32%, 27%); /* (line) */
+    --white: hsl(0, 0%, 100%);
+
+    --font-size: 18px;
+}
+
+body{
+    color: var(--white);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main{
+    background-color: var(--blue-950);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    background-color: var(--blue-900);
+    border-radius: 1rem;
+    margin: 4rem 2rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.image {
+    position: relative;
+}
+
+.image img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cyan-400);
+    border-radius: 1rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image:hover .overlay {
+    opacity: .5;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+a{
+    color: var(--white);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover, a:focus{
+    color: var(--cyan-400);
+}
+
+p{
+    color: var(--blue-800);
+    font-size: var(--font-size);
+}
+
+.eth-days-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+}
+
+.eth{
+    color: var(--cyan-400);
+    font-weight: 400;
+}
+
+.days{
+    color: var(--blue-500);
+}
+
+.profile-box{
+    border-top: 1px solid var(--blue-800);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.profile-box img{
+    width: 2rem;
+    height: 2rem;
+    outline: 1px solid var(--white);
+    border-radius: 50%;
+}
+
+.highlight{
+    color: var(--blue-500);
+    font-weight: 300;
+}
