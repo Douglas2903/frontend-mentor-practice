@@ -45,6 +45,7 @@ main{
 .container{
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .result-section{
@@ -187,4 +188,34 @@ main{
 
 .continue-button:hover, .continue-button:focus{
     background-image: linear-gradient(var(--light-slate-blue), var(--light-royal-blue));
+}
+
+@media screen and (min-width: 37.5rem) {
+    main{
+        background-color: var(--pale-blue);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container{
+        background-color: var(--white);
+        border-radius: 2rem;
+        flex-direction: row;
+        max-width: 39rem;
+        margin: 3rem 2rem;
+        height: auto;
+    }
+
+    .result-section, .summary-section{
+        flex: 1;
+    }
+
+    .result-section{
+        border-radius: 2rem;
+    }
+
+    .summary-section{
+        gap: 2rem;
+        padding: 2rem 2rem 1rem;
+    }
 }
