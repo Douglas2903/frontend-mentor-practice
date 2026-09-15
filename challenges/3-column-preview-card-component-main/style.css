@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --gold-500: hsl(31, 77%, 52%);
+    --cyan-800: hsl(184, 100%, 22%);
+    --green-950: hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75); /* (paragraphs) */
+    --gray-100: hsl(0, 0%, 95%); /* (background, headings, buttons) */
+
+    --font-size: 15px;
+}
+
+body{
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main{
+    background-color: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 2rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem;
+}
+
+.card .image-card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card h2{
+    color: var(--gray-100);
+    font-family: "Big Shoulders", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 2rem;
+    font-style: normal;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.card p{
+    color: var(--transparent-white);
+    font-size: var(--font-size);
+}
+
+.card a{
+    background-color: var(--gray-100);
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.sedans{
+    background-color: var(--gold-500);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.sedans a{
+    color: var(--gold-500);
+}
+.sedans a:hover, .sedans a:focus, .suvs a:hover, .suvs a:focus, .luxury a:hover, .luxury a:focus{
+    color: var(--gray-100);
+    outline: 2px solid var(--gray-100);
+}
+
+.sedans a:hover, .sedans a:focus{
+    background-color: var(--gold-500);   
+}
+
+.suvs{
+    background-color: var(--cyan-800);
+}
+
+.suvs a{
+    color: var(--cyan-800);
+}
+
+.suvs a:hover, .suvs a:focus{
+    background-color: var(--cyan-800);
+}
+
+.luxury{
+    background-color: var(--green-950);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.luxury a{
+    color: var(--green-950);
+}
+
+.luxury a:hover, .luxury a:focus{
+    background-color: var(--green-950);
+}
