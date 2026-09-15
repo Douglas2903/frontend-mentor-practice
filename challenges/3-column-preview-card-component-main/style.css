@@ -118,3 +118,24 @@ main{
 .luxury a:hover, .luxury a:focus{
     background-color: var(--green-950);
 }
+
+@media screen and (min-width: 48rem){
+    .container{
+        flex-direction: row;
+        max-width: 53.75rem;
+    }
+
+    .sedans{
+        border-top-right-radius: 0;
+        border-bottom-left-radius: .5rem;
+    }
+
+    .luxury{
+        border-top-right-radius: .5rem;
+        border-bottom-left-radius: 0;
+    }
+
+    a{
+        margin-top: 2rem;
+    }
+}
