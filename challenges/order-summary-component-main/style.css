@@ -93,6 +93,11 @@ main{
     font-weight: 900;
 }
 
+.annual-content{
+    display: flex;
+    flex-direction: column;
+}
+
 a{
     cursor: pointer;
     font-family: "Red Hat Display", sans-serif;
@@ -144,4 +149,15 @@ button{
 
 .cancel-button:hover, .cancel-button:focus{
     color: var(--blue-950);
+}
+
+@media screen and (min-width: 24rem){
+    main{
+        background-image: url(images/pattern-background-desktop.svg);
+        background-size: contain;
+    }
+
+    .container{
+        max-width: 26rem;
+    }
 }
