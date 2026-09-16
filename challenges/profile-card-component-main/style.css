@@ -36,6 +36,7 @@ main{
 .container{
     background-color: var(--gray-100);
     border-radius: .5rem;
+    margin: 3rem 1rem;
     position: relative;
 }
 
