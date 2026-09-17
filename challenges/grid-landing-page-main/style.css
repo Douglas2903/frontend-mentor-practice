@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "Inter";
+    src: url(assets/fonts/inter/inter-variable.ttf);
+    font-weight: 400 500;
+    font-display: swap;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --white: hsl(0, 0%, 100%);
+    --blue-200: hsl(224, 100%, 95%);
+    --blue-400: hsl(220, 100%, 64%);
+    --blue-600: hsl(228, 100%, 60%);
+    --blue-700: hsl(228, 99%, 58%);
+    --black: hsl(0, 0%, 0%);  /* used at 25% opacity for the menu overlay */
+    --font-size-stat-descriptions-nav-footer: 17px;
+    --font-size-paragraph: 14px;
+}
+
+body{
+    color: var(--white);
+    font-family: "Inter";
+    font-weight: 400;
+}
+
+header, footer{
+    background-color: var(--blue-600);
+}
+
+main{
+    background-color: var(--blue-700);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff46;
+    padding: 1rem;
+}
+
+header span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+header span::before{
+    content: "●";
+}
+
+header button{
+    background-color: var(--blue-600);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    border-bottom: 1px solid #ffffff46;
+}
+
+.hero h1{
+    font-weight: 500;
+    margin-right: 2rem;
+}
+
+.hero p{
+    color: var(--blue-200);
+    font-size: var(--font-size-paragraph);
+    margin-right: 3.5rem;
+}
+
+.stats-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.stats-section a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+.stats-section a:hover, .stats-section a:focus{
+    background-color: var(--blue-400);
+}
+
+.card{
+    border-bottom: 1px solid #ffffff46;
+    padding: 2rem 2rem;
+}
+
+.icon-number{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.number{
+    font-size: 2rem;
+}
+
+.content-box{
+    margin-top: 10rem;
+}
+
+.content-box h2{
+    font-weight: 400;
+    font-size: var(--font-size-stat-descriptions-nav-footer);
+}
+
+.content-box p{
+    color: var(--blue-200);
+    font-size: var(--font-size-paragraph);
+}
+
+footer{
+    color: var(--blue-200);
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: var(--font-size-stat-descriptions-nav-footer);
+    padding: 1rem 2rem;
+}
+
+.menu{
+    background-color: var(--blue-600);
+    display: none;
+}
+
+.menu.open{
+    display: block;
+}
+
+.menu ul{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0rem;
+}
+
+.menu a{
+    color: var(--white);
+    display: block;
+    font-size: var(--font-size-stat-descriptions-nav-footer);
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem;
+}
+
+.menu a:hover, .menu a:focus{
+    background-color: var(--blue-400);
+    text-decoration: underline;
+}
