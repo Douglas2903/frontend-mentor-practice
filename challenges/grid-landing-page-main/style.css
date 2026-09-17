@@ -159,3 +159,63 @@ footer {
   padding: 1rem 2rem;
   gap: 0.5rem;
 }
+
+@media screen and (min-width: 900px) {
+  body{
+    display: grid;
+    grid-template-rows: 5vh 90vh 5vh;
+    grid-template-columns: auto;
+    position: relative;
+  }
+
+  nav {
+    position: absolute;
+    top: 5vh;
+    right: 0;
+    width: 25%;
+    height: 90vh;
+  }
+
+  header{
+    grid-row: 1;
+  }
+
+  main{
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-section{
+    grid-column: 1;
+    justify-content: center;
+    border-right: 1px solid var(--white);
+    padding-left: 5rem;
+  }
+
+  .hero-section h1, .hero-section p{
+    max-width: 50%;
+  }
+
+  .card-section{
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .card-section a:first-child, .card-section a:nth-child(3){
+    border-right: 1px solid var(--white);
+  }
+
+  .card-section a:nth-child(2), .card-section a:last-child{
+    border-left: 1px solid var(--white);
+  }
+
+  footer{
+    flex-direction: row;
+    justify-content: space-between;
+    grid-row: 3;
+  }
+}
