@@ -231,3 +231,71 @@ ul li a:hover, ul li a:focus{
 .social-medias-box a:hover svg path, .social-medias-box a:focus svg path{
     fill: var(--green-500);
 }
+
+@media screen and (min-width: 48rem) {
+    .introduction-section-content, .track-section, .tools-box{
+        max-width: 70%;
+        margin: auto;
+    }
+    
+    .logo{
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%,rgba(255, 255, 255, 0.7) 100%), url(images/bg-header-desktop.png);
+        padding: 2.5rem 0rem;
+    }
+
+    .button-box{
+        flex-direction: row;
+    }
+
+    .computer-section{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .computer-section-content{
+        text-align: left;
+    }
+
+    .tools-box{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70%;
+    }
+
+    .tools-item{
+        width: 20rem;
+        gap: 1rem;
+    }
+
+    .brands-box{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 70%;
+        margin: auto;
+        margin-top: 5rem;
+    }
+
+    .clipboard-section{
+        width: 35%;
+        margin: auto;
+        margin-top: 5rem;
+    }
+
+    footer{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .social-medias-box{
+        gap: 3rem;
+        width: fit-content;
+    }
+
+    ul{
+        flex-direction: row;
+        gap: 2rem;
+        flex-wrap: wrap;
+        width: 70%;
+    }
+}
