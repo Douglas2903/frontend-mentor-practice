@@ -1,105 +1,78 @@
-# Frontend Mentor - Clipboard landing page
+# Clipboard Landing Page
 
-![Design preview for the Clipboard landing page coding challenge](preview.jpg)
+Solução para o desafio [Clipboard Landing Page](https://www.frontendmentor.io/challenges/clipboard-landing-page-5cceb32483abb4f27c98uUX9) do Frontend Mentor (categoria Newbie).
 
-## Welcome! 👋
+🔗 [Link do desafio](https://www.frontendmentor.io/challenges/clipboard-landing-page-5cceb32483abb4f27c98uUX9)
 
-Thanks for checking out this front-end coding challenge.
+## Visão geral
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+Landing page responsiva construída com HTML5 semântico e CSS3 (Flexbox), seguindo abordagem **mobile-first**. O projeto foi usado como estudo aprofundado de semântica HTML e acessibilidade, além de fundamentos de responsividade com Flexbox.
 
-**To do this challenge, you need a basic understanding of HTML and CSS**
+### Tecnologias utilizadas
 
-## The challenge
+- HTML5 semântico
+- CSS3 (Custom Properties, Flexbox, Media Queries)
+- Mobile-first workflow
 
-Your challenge is to build out this landing page and get it looking as close to the design as possible.
+## Decisões técnicas
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+### 1. Hierarquia de headings corrigida
 
-Your users should be able to: 
+Na primeira versão, os títulos "Quick Search", "iCloud Sync" e "Complete History" estavam marcados como `<h2>`, no mesmo nível hierárquico do título da seção anterior ("Keep track of your snippets"). Isso quebrava a árvore de acessibilidade do documento: esses três itens são **detalhes** do conceito anterior, não seções novas e independentes.
 
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
+Corrigido para `<h3>`, respeitando a relação pai/filho (`h2` → `h3`) e mantendo uma estrutura de outline coerente, testada via extensão HeadingsMap no Chrome.
 
-### Want some support on the challenge? 
+### 2. Links de download: `<button>` → `<a>`
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+Os botões "Download for iOS/Mac" estavam originalmente marcados como `<button type="button">`. Como a ação real desses elementos é **navegar** para outro destino (loja de aplicativos), e não executar uma ação em JavaScript na própria página, a tag semanticamente correta é `<a>`.
 
-## Where to find everything
+A distinção segue a recomendação da [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#usage_notes): `<button>` para ações que alteram o estado da página atual; `<a>` para navegação, ainda que estilizada visualmente como botão via CSS.
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### 3. Ícones sociais: SVG inline + acessibilidade
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Os ícones do footer (Facebook, Twitter, Instagram) foram implementados como **SVG inline** (código `<svg>` direto no HTML) em vez de `<img src="icon.svg">`. Essa escolha foi necessária para permitir que o CSS controlasse a cor do ícone dinamicamente no estado `:hover`/`:focus` — algo que não é possível quando o SVG é carregado via `src` de uma `<img>`, pois o navegador o trata como uma imagem opaca, sem acesso ao atributo `fill` interno via CSS externo.
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+Como os links ficaram sem nenhum texto visível (só o ícone), cada `<a>` recebeu um `aria-label` (ex: `aria-label="Facebook"`) para dar um nome acessível ao link para leitores de tela. O `<svg>` interno recebeu `aria-hidden="true"`, evitando que ele seja anunciado novamente de forma redundante — o nome já foi definido no elemento pai.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+Todos os links externos usam `rel="noopener noreferrer"` junto com `target="_blank"`, prevenindo o problema de segurança conhecido como **tabnabbing** (a página aberta ganhando acesso ao `window.opener` da aba original).
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### 4. Bug resolvido: cor do ícone não mudava no `:hover`
 
-## Using AI coding assistants
+**Problema:** ao tentar mudar a cor dos ícones sociais no hover com `.social-medias-box a:hover { fill: var(--green-500); }`, nada acontecia visualmente.
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+**Causa:** a propriedade `fill` estava sendo aplicada no elemento `<a>` (pai), mas quem efetivamente precisa dela é o elemento `<path>` (dentro do `<svg>`, dois níveis abaixo). Diferente de `color` em texto, `fill` não é herdado automaticamente de forma que sobrescreva o atributo `fill` inline já presente no `<path>` do arquivo SVG original.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+**Solução:** o seletor foi ajustado para mirar o `<path>` diretamente:
+```css
+.social-medias-box a:hover svg path,
+.social-medias-box a:focus svg path {
+    fill: var(--green-500);
+}
+```
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+### 5. Removida regra de seletor de elemento genérico (`div`)
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+Durante o desenvolvimento, havia uma regra `div { display: flex; flex-direction: column; gap: 1rem; }` aplicada globalmente a **todas** as divs da página, mesmo as que já tinham classes com layout próprio. Isso criava dependência implícita: várias seções "herdavam" comportamento de uma regra genérica sem isso estar explícito em nenhuma classe.
 
-## Building your project
+A regra foi removida e substituída por uma classe específica (`.workflow-section-div`), aplicada apenas onde o comportamento era de fato necessário — eliminando efeito colateral invisível para futuras manutenções.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+## Responsividade
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Abordagem mobile-first, com breakpoint único em `48rem` (768px) para o layout desktop. Unidade `rem` escolhida em vez de `px` no breakpoint para respeitar configurações de zoom/fonte do usuário no navegador.
 
-## Deploying your project
+Principais mudanças no breakpoint desktop:
+- Seções `computer-section` e `clipboard-section` passam de layout empilhado (`column`) para lado a lado (`row`)
+- Imagem de fundo do header trocada para a versão desktop
+- Botões de download passam a ficar lado a lado
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+## O que foi testado
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- Breakpoints testados manualmente redimensionando a viewport no navegador (não apenas nos tamanhos "óbvios")
+- Estados de `:hover` e `:focus` verificados em todos os elementos interativos (links, ícones sociais)
+- HTML validado sem erros no [W3C Markup Validator](https://validator.w3.org/)
+- Hierarquia de headings verificada com a extensão HeadingsMap
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+## Autor
 
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@Douglas2903](https://www.frontendmentor.io/profile/Douglas2903)
+- GitHub - [@Douglas2903](https://github.com/Douglas2903)
