@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --purple-50: hsl(260, 100%, 95%);
+    --purple-300: hsl(264, 82%, 80%);
+    --purple-500: hsl(263, 55%, 52%);
+    --white: hsl(0, 0%, 100%);
+    --grey-100: hsl(214, 17%, 92%);
+    --grey-200: hsl(0, 0%, 81%);
+    --grey-400: hsl(224, 10%, 45%);
+    --grey-500: hsl(217, 19%, 35%);
+    --dark-blue: hsl(219, 29%, 14%);
+    --black: hsl(0, 0%, 7%);
+    --font-size: 13px;
+}
+
+body{
+    background-color: var(--grey-100);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 3rem 2rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.card-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.card{
+    border-radius: 1rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.personal-box{
+    display: flex;
+    gap: 1rem;
+}
+
+.personal-box .personal-img img{
+    border-radius: 50%;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.personal-box-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.personal-box-text span{
+    display: flex;
+    align-items: center;
+    height: 50%;
+    font-size: 1.2rem;
+}
+
+.personal-box-text span:last-child{
+    color: var(--grey-200);
+    font-weight: 500;
+    font-size: var(--font-size);
+}
+
+.daniel{
+    background-color: var(--purple-500);
+    
+}
+
+.daniel img{
+    border: 3px solid var(--purple-300);
+}
+
+.daniel .name, .daniel .quote{
+    color: var(--grey-100);
+}
+
+.jonathan{
+    background-color: var(--grey-500);
+}
+
+.jonathan img{
+    border: 3px solid var(--grey-200);
+}
+
+.jonathan .quote{
+    color: var(--grey-200);
+}
+
+.jeanette, .kira{
+    background-color: var(--white);
+    color: var(--grey-500);
+}
+
+.jeanette img, .kira img{
+    border: 3px solid var(--white);
+}
+
+.jeanette span:last-child{
+    color: var(--dark-blue);
+}
+
+.patrick{
+    background-color: var(--dark-blue);
+    color: var(--grey-200);
+}
+
+.patrick img{
+    border: 3px solid var(--dark-blue);
+}
