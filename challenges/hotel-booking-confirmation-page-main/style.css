@@ -1,0 +1,675 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "Fraunces";
+    src: url(assets/fonts/fraunces/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf);
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url(assets/fonts/dm-sans/DMSans-VariableFont_opsz\,wght.ttf);
+    font-weight: 400 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    src: url(assets/fonts/dm-mono/DMMono-Medium.ttf);
+    font-weight: 400 500;
+    font-display: swap;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --neutral-900: hsl(33, 15%, 15%);
+    --neutral-800: hsl(33, 22%, 20%);
+    --neutral-700: hsl(32, 20%, 29%);
+    --neutral-600: hsl(33, 17%, 41%);
+    --neutral-400: hsl(36, 22%, 86%);
+    --neutral-200: hsl(30, 24%, 93%);
+    --neutral-100: hsl(35, 60%, 96%);
+    --neutral-50: hsl(40, 60%, 98%);
+    --neutral-0: hsl(0, 0%, 100%);
+
+    --sun-500: hsl(42, 83%, 58%);
+    --sun-300: hsl(44, 84%, 75%);
+    --sun-200: hsl(45, 100%, 74%);
+    --sun-50: hsl(41, 100%, 93%);
+
+    --terracotta-700: hsl(15, 69%, 37%);
+    --terracotta-600: hsl(15, 74%, 41%);
+    --terracotta-500: hsl(18, 62%, 47%);
+    --terracotta-400: hsl(22, 72%, 56%);
+
+    --blue-500: hsl(230, 49%, 56%);
+    --rose-500: hsl(340, 48%, 52%);
+    --font-size: 14px;
+}
+
+body{
+    background-color: var(--neutral-100);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "DM Sans";
+    font-weight: 600;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header{
+    border-bottom: 1px solid var(--neutral-400);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.sidebar-header button{
+    background-color: var(--neutral-100);
+    border: 1px solid var(--neutral-400);
+    border-radius: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+}
+
+.sidebar-panel{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: space-between;
+    min-height: 80vh;
+}
+
+.sidebar-nav > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    list-style-type: none;
+}
+
+.sidebar-nav > ul > li > a > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.sidebar-nav > ul > li > a{
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: .5rem;
+    color: var(--neutral-600);
+    text-decoration: none;
+}
+
+.sidebar-nav > ul > li:first-child > a{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-nav > ul > li > a:hover, .sidebar-nav > ul > li > a:focus{
+    background-color: var(--neutral-0);
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.notification{
+    color: var(--neutral-0);
+    background-color: var(--terracotta-600);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    width: 20px;
+    height: 20px;
+}
+
+.weather-card{
+    border-radius: 1rem;
+    background-color: var(--sun-300);
+    margin: 1rem;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-family: "DM Mono";
+    font-weight: 400;
+    color: var(--neutral-700);
+}
+
+.weather-card img{
+    position: absolute;
+    top: -20px;
+    right: -10px;
+}
+
+.degrees{
+    color: var(--neutral-900);
+    font-size: 3rem;
+    font-family: "Fraunces";
+}
+
+.sidebar-footer{
+    border-top: 1px dashed ;
+    color: var(--neutral-600);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin: 1rem;
+    padding-top: .8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.sidebar-footer address{
+    font-style: normal;
+}
+
+main{
+    color: var(--neutral-600);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem;
+}
+
+.main-header{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.booking{
+    font-family: "DM Sans";
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h1{
+    color: var(--neutral-900);
+    font-family: "Fraunces";
+}
+
+h1 .guest-name{
+    color: var(--terracotta-600);
+    font-style: italic;
+}
+
+.button-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: .5rem;
+    padding: 1rem;
+}
+
+.button-div > button{
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: .8rem;
+    font-family: "DM Sans";
+    font-weight: 600;
+    width: 150px;
+}
+
+.button-div .receipt-button{
+    background-color: var(--neutral-300);
+    border: 2px solid var(--neutral-600);
+    color: var(--neutral-900);
+}
+
+.button-div .receipt-button:hover{
+    background-color: var(--neutral-200);
+    border: 1px solid var(--neutral-100);
+}
+
+.button-div .calendar-button{
+    background-color: var(--neutral-800);
+    color: var(--neutral-200);
+}
+
+.button-div .calendar-button:hover{
+    background-color: var(--neutral-900);
+}
+
+.booking-cards{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+}
+
+.receipt-card{
+    background-color: var(--neutral-0);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.receipt-card header{
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-card header div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 200;
+}
+
+.receipt-id{
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-id span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.receipt-card h2{
+    color: var(--neutral-800);
+    font-family: "Fraunces";
+}
+
+.check-box{
+    border-top: 1px dashed var(--neutral-600);
+    border-bottom: 1px dashed var(--neutral-600);
+    padding: 1rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-in, .check-out{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.check-in p:first-child, .check-out p:first-child{
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 400;
+}
+
+.check-in time:nth-child(2), .check-out time:nth-child(2){
+    color: var(--neutral-800);
+    font-size: 2.5rem;
+    font-family: "Fraunces";
+}
+
+.prices{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-bottom: 1px solid var(--neutral-700);
+    padding-bottom: 1rem;
+}
+
+.prices .price{
+    font-family: "DM Mono";
+    font-weight: 400;
+}
+
+.item-price{
+    color: var(--neutral-800);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-price:last-child{
+    color: var(--neutral-300);
+}
+
+.total-paid{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "DM Sans";
+}
+
+.total-paid dt{
+    font-family: "DM Mono";
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.total-paid dd{
+    color: var(--neutral-800);
+    font-family: "Fraunces";
+    font-size: 2rem;
+}
+
+.receipt-card footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 400;
+    font-size: var(--font-size);
+}
+
+.welcome-card{
+    border-radius: 1rem;
+    background-image: linear-gradient(to bottom left, var(--terracotta-400), var(--terracotta-700));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+.welcome-card header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-top: 1px dashed var(--neutral-100);
+    padding-top: 1rem;
+}
+
+.welcome{
+    color: var(--neutral-100);
+    text-transform: uppercase;
+    font-family: "DM Sans";
+    font-weight: 400;
+    font-size: .8rem;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card-content h2{
+    color: var(--sun-200);
+    font-family: "Fraunces";
+    font-style: italic;
+}
+
+.margaux{
+    color: var(--neutral-400);
+    font-size: 3rem;
+}
+
+.card-content p{
+    color: var(--neutral-200);
+    font-size: var(--font-size);
+    font-weight: 400;
+}
+
+.room-info{
+    color: var(--neutral-400);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.room-info dt{
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 400;
+    letter-spacing: .2rem;
+}
+
+.room-info dd{
+    font-family: "Fraunces";
+    font-size: 1.5rem;
+}
+
+.guest-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card{
+    background-color: var(--neutral-0);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.card header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card img{
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h2{
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 400;
+    font-size: var(--font-size);
+}
+
+.card .number{
+    font-size: 2rem;
+    font-family: "Fraunces";
+}
+
+.image-container{
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+}
+
+.arrival .image-container{
+    background-color: var(--terracotta-600);
+}
+
+.arrival h2, .arrival .number{
+    color: var(--terracotta-500);
+}
+
+.wifi .image-container{
+    background-color: var(--blue-500);
+}
+
+.wifi h2, .wifi .number{
+    color: var(--blue-500);
+}
+
+.breakfast .image-container{
+    background-color: var(--rose-500);
+}
+
+.breakfast h2, .breakfast .number{
+    color: var(--rose-500);
+}
+
+.card .main-text{
+    color: var(--neutral-800);
+    font-size: 1.7rem;
+    font-family: "Fraunces";
+}
+
+.card .sub-text{
+    font-size: .8rem;
+}
+
+.arrival p:last-child{
+    font-size: var(--font-size);
+}
+
+.wifi-details{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.wifi-row{
+    background-color: var(--neutral-200);
+    border-radius: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.wifi-row dt{
+    text-transform: uppercase;
+    font-family: "DM Mono";
+    font-weight: 400;
+    letter-spacing: .2rem;
+}
+
+.wifi-row dd{
+    color: var(--neutral-900);
+}
+
+.copy-button{
+    background-color: var(--neutral-200);
+    border: 1px solid var(--neutral-600);
+    color: var(--neutral-600);
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: .3rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    width: 4rem;
+}
+
+.copy-button:hover{
+    border: 2px solid var(--terracotta-600);
+}
+
+.breakfast p:last-child{
+    font-size: var(--font-size);
+}
+
+@media screen and (min-width: 1440px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+
+    .sidebar{
+        border-right: 1px solid var(--neutral-400);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar-header{
+        height: 10vh;
+    }
+
+    .sidebar-header button{
+        display: none;
+    }
+
+    .sidebar-panel{
+        display: flex;
+        flex: 1;
+    }
+
+    main{
+        padding: 2rem;
+    }
+
+    .main-header{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .booking-cards{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 60rem;
+        margin: auto; 
+    }
+
+    .receipt-card,
+    .welcome-card{
+        transition: transform 300ms ease;
+    }
+
+    .receipt-card{
+        transform: rotate(-4deg);
+    }
+
+    .welcome-card{
+        transform: rotate(4deg);
+    }
+
+    .booking-cards:hover .receipt-card{
+        transform: rotate(-8deg);
+    }
+
+    .booking-cards:hover .welcome-card{
+        transform: rotate(8deg);
+    }
+
+    .card{
+        justify-content: space-around;
+    }
+
+    .guest-info{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}

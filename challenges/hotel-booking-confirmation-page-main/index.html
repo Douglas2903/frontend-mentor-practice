@@ -1,125 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  <title>Frontend Mentor | Hotel booking confirmation page</title>
+    <title>Frontend Mentor | Hotel booking confirmation page</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <header class="sidebar-header">
+        <img
+          src="assets/images/logo.svg"
+          alt="Maison Soleil"
+          width="107"
+          height="42"
+        />
+        <button
+          type="button"
+          class="menu-button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="sidebar-panel"
+        >
+          <img
+            src="assets/images/icon-menu.svg"
+            alt=""
+            width="20"
+            height="20"
+          />
+        </button>
+      </header>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      <div class="sidebar-panel" id="sidebar-panel">
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" aria-current="page">
+                <span class="image-text">
+                  <img
+                    src="assets/images/icon-bed.svg"
+                    alt=""
+                    width="20"
+                    height="20"
+                  />
+                  Your stay
+                </span>
+                <span class="notification"
+                  >1<span class="sr-only"> new update</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><span class="image-text">
+                  <img
+                    src="assets/images/icon-house.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                  />The house
+                </span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="image-text">
+                  <img
+                    src="assets/images/icon-pin.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                  />Around town
+                </span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="image-text">
+                  <img
+                    src="assets/images/icon-breakfast-outline.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                  />Breakfast
+                </span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span class="image-text">
+                  <img
+                    src="assets/images/icon-mail.svg"
+                    width="20"
+                    height="20"
+                    alt=""
+                  />Messages
+                </span></a
+              >
+            </li>
+          </ul>
+        </nav>
 
-  <!-- Sidebar starts -->
+        <div class="botton-section">
+          <div class="weather-card">
+            <img
+              class="weather-icon"
+              src="assets/images/icon-weather.svg"
+              width="80"
+              height="80"
+              alt=""
+            />
+            <p>Today in Cassis</p>
+            <p class="degrees">27°</p>
+            <p>Sunny · light breeze</p>
+          </div>
+          <footer class="sidebar-footer">
+            <p>Est. <time datetime="1987">1987</time></p>
+            <address>Maison Soleil · 12 Rue des Oliviers · Cassis</address>
+            <p>&copy; <time datetime="2026">2026</time> Maison Soleil</p>
+          </footer>
+        </div>
+      </div>
+    </div>
 
-  Maison Soleil
+    <main>
+      <header class="main-header">
+        <div>
+          <p class="booking">Booking · Confirmed</p>
+          <h1>
+            <span lang="fr">Bienvenue</span>,
+            <span class="guest-name">Lucia.</span>
+          </h1>
+        </div>
+        <div class="button-div">
+          <button type="button" class="receipt-button">Print receipt</button>
+          <button type="button" class="calendar-button">Add to calendar</button>
+        </div>
+      </header>
 
-  <!-- Guest navigation -->
-  Your stay
-  1
-  The house
-  Around town
-  Breakfast
-  Messages
+      <div class="booking-cards">
+        <article class="receipt-card">
+          <header>
+            <div>
+              <p>Receipt</p>
+              <div class="receipt-id">
+                <span>№ MS-2026</span>
+                <span>0421-AH</span>
+              </div>
+            </div>
+            <h2>Your stay</h2>
+          </header>
+          <div class="check-box">
+            <div class="check-in">
+              <p>Check in</p>
+              <time datetime="2026-04-25">25 Apr</time>
+              <p>Saturday · <time datetime="15:00">15:00</time></p>
+            </div>
+            <div class="check-out">
+              <p>Check out</p>
+              <time datetime="2026-04-29">29 Apr</time>
+              <p>Wednesday · <time datetime="11:00">11:00</time></p>
+            </div>
+          </div>
+          <dl class="prices">
+            <div class="item-price">
+              <dt class="item">Room · La Garrigue · 4 nights</dt>
+              <dd class="price">€ 620.00</dd>
+            </div>
+            <div class="item-price">
+              <dt class="item">Breakfast · 2 guests</dt>
+              <dd class="price">€ 96.00</dd>
+            </div>
+            <div class="item-price tourist">
+              <dt class="item">Tourist tax</dt>
+              <dd class="price">€ 14.40</dd>
+            </div>
+          </dl>
+          <dl class="total-paid">
+            <dt>Total paid</dt>
+            <dd>€ 730.40</dd>
+          </dl>
+          <footer>
+            <p>Paid · Wise · GBP</p>
+            <img
+              src="assets/images/icon-barcode.svg"
+              alt=""
+              width="93"
+              height="28"
+            />
+          </footer>
+        </article>
 
-  <!-- Local weather -->
-  Today in Cassis
-  27°
-  Sunny · light breeze
+        <article class="welcome-card">
+          <header>
+            <p class="welcome">Welcome card</p>
+            <img src="assets/images/icon-sun.svg" alt="" width="49" height="49">
+          </header>
+          <div class="card-content">
+            <h2>A note from your host, <span class="margaux">Margaux.</span></h2>
+            <p>
+              We're so glad you're coming. The shutters will be open, the
+              lemonade cold, and the cat - Poivre - pretending not to notice
+              you.
+            </p>
+          </div>
+          <footer>
+            <dl class="room-info">
+              <dt>Room</dt>
+              <dd>La Garrigue</dd>
+            </dl>
+          </footer>
+        </article>
+      </div>
 
-  Est. 1987
-  Maison Soleil · 12 Rue des Oliviers · Cassis
-  © 2026 Maison Soleil
+      <div class="guest-info">
+        <article class="card arrival">
+          <header>
+            <div class="image-title">
+              <div class="image-container">
+                <img
+                  src="assets/images/icon-key.svg"
+                  alt=""
+                  width="24"
+                  height="25"
+                />
+              </div>
+              <h2>Arrival</h2>
+            </div>
+            <span class="number" aria-hidden="true">01</span>
+          </header>
+          <p class="main-text">
+            Check-in from <time datetime="15:00">15:00</time>
+          </p>
+          <p class="sub-text">
+            Sat, <time datetime="2026-04-25">25 April</time>
+          </p>
+          <p>
+            Ring the brass bell by the blue door. If we're at the market, the
+            key is in the terracotta pot by the olive tree.
+          </p>
+        </article>
 
-  <!-- Sidebar ends -->
+        <article class="card wifi">
+          <header>
+            <div class="image-title">
+              <div class="image-container">
+                <img
+                  src="assets/images/icon-wifi.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </div>
+              <h2>Wifi</h2>
+            </div>
+            <span class="number" aria-hidden="true">02</span>
+          </header>
+          <p class="main-text">Le Soleil · Guest</p>
+          <p class="sub-text">Password below</p>
+          <dl class="wifi-details">
+            <div class="wifi-row">
+              <dt>Network</dt>
+              <dd>Le Soleil · Guest</dd>
+            </div>
+            <div class="wifi-row">
+              <dt>Password</dt>
+              <dd>
+                <div class="password-button">
+                  <span class="wifi-password">soleil-2026</span>
+                  <button type="button" class="copy-button">
+                    Copy<span class="sr-only"> password</span>
+                  </button>
+                </div>
+              </dd>
+            </div>
+          </dl>
+        </article>
 
-  <!-- Main content starts -->
-
-  Booking · Confirmed
-  Bienvenue, Lucia.
-
-  Print receipt
-  Add to calendar
-
-  <!-- Booking cards start -->
-
-  <!-- Receipt card -->
-  Receipt
-  № MS-2026
-  0421-AH
-
-  Your stay
-
-  Check in
-  25 Apr
-  Saturday · 15:00
-
-  Check out
-  29 Apr
-  Wednesday · 11:00
-
-  Room · La Garrigue · 4 nights
-  € 620.00
-  Breakfast · 2 guests
-  € 96.00
-  Tourist tax
-  € 14.40
-
-  Total paid
-  € 730.40
-
-  Paid · Wise · GBP
-  <!-- Barcode image -->
-
-  <!-- Note from host card -->
-  Welcome
-  A note from your host, Margaux.
-  We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to notice you.
-  Room
-  La Garrigue
-
-  <!-- Booking cards end -->
-
-  <!-- Guest info row starts -->
-
-  <!-- Arrival -->
-  Arrival
-  01
-  Check-in from 15:00
-  Sat, 25 April
-  Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.
-
-  <!-- Wifi -->
-  Wifi
-  02
-  Le Soleil · Guest
-  Password below
-  Network
-  Le Soleil · Guest
-  Password
-  soleil-2026
-  Copy
-
-  <!-- Breakfast -->
-  Breakfast
-  03
-  Served 8 - 10:30
-  On the terrace
-  Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.
-
-  <!-- Guest info row ends -->
-
-  <!-- Main content ends -->
-
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+        <article class="card breakfast">
+          <header>
+            <div class="image-title">
+              <div class="image-container">
+                <img
+                  src="assets/images/icon-breakfast.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </div>
+              <h2>Breakfast</h2>
+            </div>
+            <span class="number" aria-hidden="true">03</span>
+          </header>
+          <p class="main-text">
+            Served <time datetime="08:00">8</time> –
+            <time datetime="10:30">10:30</time>
+          </p>
+          <p class="sub-text">On the terrace</p>
+          <p>
+            Fresh figs, Marseille honey, <span lang="fr">pain au levain</span>,
+            and espresso. Gluten-free option? Leave a note the night before.
+          </p>
+        </article>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
