@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "WorkSans";
+    src: url(assets/fonts/WorkSans-VariableFont_wght.ttf);
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --white: hsl(0, 100%, 100%);
+    --purple-100: hsl(275, 100%, 97%);
+    --purple-600: hsl(292, 16%, 49%);
+    --purple-950: hsl(292, 42%, 14%);
+    --color-highlight: rgb(196, 20, 245);
+    --font-size: 16px;
+}
+
+body{
+    background-image: url(assets/images/background-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    background-color: var(--purple-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: "WorkSans";
+}
+
+.card{
+    background-color: var(--white);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2rem;
+    margin: 4rem 2rem;
+}
+
+.card header{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card header h1{
+    color: var(--purple-950);
+    font-weight: 700;
+}
+
+.card header img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content .question-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content .question-box:not(:first-child){
+    border-top: 3px solid var(--purple-100);
+}
+
+.question{
+    text-align: left;
+}
+
+.card-content h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card-content button{
+    border: none;
+    color: var(--purple-950);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+    width: 100%;
+}
+
+.card-content button:hover{
+    color: var(--color-highlight);
+}
+
+.card-content button:focus-visible{
+    outline: 2px solid var(--color-highlight);
+    outline-offset: -2px;
+}
+
+.question-box p{
+    display: none;
+    color: var(--purple-600);
+    font-size: var(--font-size);
+    font-weight: 400;
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+@media screen and (min-width: 768px) {
+    body{
+        background-image: url(assets/images/background-pattern-desktop.svg);
+    }
+
+    .card{
+        max-width: 21.875rem;
+    }
+}
