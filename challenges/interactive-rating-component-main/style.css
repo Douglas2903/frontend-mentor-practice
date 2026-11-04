@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --orange-500: hsl(25, 97%, 53%);
+    --white: hsl(0, 100%, 100%);
+    --grey-500: hsl(217, 12%, 63%);
+    --grey-900: hsl(213, 19%, 18%);
+    --grey-950: hsl(216, 12%, 8%);
+    --font-size: 15px;      /* (paragraph) */
+}
+
+body{
+    background-color: var(--grey-950);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main, button{
+    font-family: "Overpass", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.card{
+    border-radius: 1rem;
+    background-color: var(--grey-900);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin: 4rem 1rem;
+    max-width: 25rem;
+}
+
+.rate-card__icon{
+    background-color: rgb(54, 55, 63);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.rate-card__icon img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1{
+    color: var(--white);
+}
+
+.rate-card__intro, .thank-card__intro{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+p{
+    color: var(--grey-500);
+    font-size: var(--font-size);
+}
+
+.rate-card__form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.rate-card__option{
+    background-color: rgb(54, 55, 63);
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+.rate-card__option:hover{
+    background-color: var(--orange-500);
+    color: var(--grey-950);
+}
+
+input[type="radio"]:checked + .rate-card__option{
+    background-color: var(--white);
+    color: var(--grey-950);
+}
+
+button{
+    background-color: var(--orange-500);
+    border: none;
+    border-radius: 1rem;
+    color: var(--grey-950);
+    cursor: pointer;
+    font-weight: 700;
+    padding: .5rem;
+    text-transform: uppercase;
+}
+
+.card[hidden]{
+    display: none !important;
+}
+
+.thank-card{
+    align-items: center;
+}
+
+.thank-card__rating{
+    border-radius: 2rem;
+    background-color: var(--grey-950);
+    color: var(--orange-500);
+    padding: 1rem;
+}
+
+.thank-card__intro{
+    align-items: center;
+}
+
+.thank-card__intro p{
+    text-align: center;
+}

@@ -1,49 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive rating component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  <!-- Rating state start -->
-
-  How did we do?
-
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
+  <body>
+    <main>
+      <section class="card rate-card">
+        <div class="rate-card__icon">
+          <img src="images/icon-star.svg" alt="" width="17" height="16" />
+        </div>
+        <div class="rate-card__intro">
+          <h1>How did we do?</h1>
+          <p>
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+        </div>
+        <form class="rate-card__form">
+          <fieldset>
+            <legend class="sr-only">
+              Rate your support experience from 1 (poor) to 5 (excellent)
+            </legend>
+            <input
+              type="radio"
+              name="rate"
+              id="rateValue1"
+              value="1"
+              class="sr-only"
+              required
+            /><label for="rateValue1" class="rate-card__option">1</label>
+            <input
+              type="radio"
+              name="rate"
+              id="rateValue2"
+              value="2"
+              class="sr-only"
+            /><label for="rateValue2" class="rate-card__option">2</label>
+            <input
+              type="radio"
+              name="rate"
+              id="rateValue3"
+              value="3"
+              class="sr-only"
+            /><label for="rateValue3" class="rate-card__option">3</label>
+            <input
+              type="radio"
+              name="rate"
+              id="rateValue4"
+              value="4"
+              class="sr-only"
+            /><label for="rateValue4" class="rate-card__option">4</label>
+            <input
+              type="radio"
+              name="rate"
+              id="rateValue5"
+              value="5"
+              class="sr-only"
+            /><label for="rateValue5" class="rate-card__option">5</label>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="card thank-card" hidden>
+        <div class="thank-card__illustration">
+          <img
+            src="images/illustration-thank-you.svg"
+            alt=""
+            width="162"
+            height="108"
+          />
+        </div>
+        <p class="thank-card__rating">
+          You selected <span id="userEvaluation"></span> out of 5
+        </p>
+        <div class="thank-card__intro">
+          <h1>Thank you!</h1>
+          <p>
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don’t hesitate to get in touch!
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
