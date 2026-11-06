@@ -1,36 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Article preview component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Shift the overall look and feel by adding these wonderful 
-  touches to furniture in your home
-
-  Ever been in a room and felt like something was missing? Perhaps 
-  it felt slightly bare and uninviting. I’ve got some simple tips 
-  to help you make any room feel complete.
-
-  Michelle Appleton
-  28 Jun 2020
-
-  Share
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+    <title>Frontend Mentor | Article preview component</title>
+  </head>
+  <body>
+    <main>
+      <article class="card">
+        <div class="card__image-wrapper">
+          <img
+            src="images/drawers.jpg"
+            class="card__image"
+            alt=""
+            width="660"
+            height="528"
+          />
+        </div>
+        <div class="card__content">
+          <div class="card__header">
+            <h1 class="card__title">
+              Shift the overall look and feel by adding these wonderful touches
+              to furniture in your home
+            </h1>
+            <p class="card__description">
+              Ever been in a room and felt like something was missing? Perhaps
+              it felt slightly bare and uninviting. I’ve got some simple tips to
+              help you make any room feel complete.
+            </p>
+          </div>
+          <div class="card__footer">
+            <div class="author">
+              <img
+                src="images/avatar-michelle.jpg"
+                class="author__avatar"
+                alt=""
+                width="175"
+                height="175"
+              />
+              <div class="author__info">
+                <span class="author__name">Michelle Appleton</span>
+                <time datetime="2020-06-28" class="author__date"
+                  >28 Jun 2020</time
+                >
+              </div>
+            </div>
+            <div class="share" id="share-panel" hidden>
+              <p class="share__label">Share</p>
+              <ul class="share__list">
+                <li>
+                  <a
+                    href="https://web.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="share__link"
+                  >
+                    <img
+                      src="images/icon-facebook.svg"
+                      alt="Share on Facebook"
+                      width="20"
+                      height="20"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="share__link"
+                  >
+                    <img
+                      src="images/icon-twitter.svg"
+                      alt="Share on Twitter"
+                      width="20"
+                      height="17"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://br.pinterest.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="share__link"
+                  >
+                    <img
+                      src="images/icon-pinterest.svg"
+                      alt="Share on Pinterest"
+                      width="20"
+                      height="20"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              aria-label="share"
+              aria-controls="share-panel"
+              aria-expanded="false"
+              class="share-button"
+            >
+              <img
+                src="images/icon-share.svg"
+                alt=""
+                class="share-button__icon"
+                width="15"
+                height="13"
+              />
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
 </html>
