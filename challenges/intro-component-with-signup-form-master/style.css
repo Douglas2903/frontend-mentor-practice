@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --red-400: hsl(0, 100%, 74%) ;
+    --green-400: hsl(154, 59%, 51%);
+    --purple-700: hsl(248, 32%, 49%);
+    --gray-200: hsl(0 0% 87%);
+    --gray-900: hsl(249, 10%, 26%) ;
+    --purple-350: hsl(246, 25%, 77%);
+    --font-size: 16px;
+}
+
+body, input, button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+body{
+    background-color: var(--red-400);
+    background-image: url("images/bg-intro-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 4rem 1.5rem;
+}
+
+.header__content{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.header__title{
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.header__text{
+    font-size: var(--font-size);
+    font-weight: 500;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.price-box{
+    background-color: var(--purple-700);
+    border-radius: .5rem;
+    box-shadow: 0 8px 0 hsl(0 0% 0% / 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    font-size: var(--font-size);
+}
+
+.price-box p{
+    max-width: 15rem;
+}
+
+.price-box strong{
+    font-weight: 600;
+}
+
+.form{
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: 0 8px 0 hsl(0 0% 0% / 0.1);
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__input{
+    border: 1px solid var(--gray-200);
+    border-radius: .5rem;
+    font-weight: 600;
+    padding: 1rem;
+    width: 100%;
+}
+
+.input__error{
+    color: var(--red-400);
+    font-size: .7rem;
+    font-style: italic;
+    text-align: right;
+    margin-top: .2rem;
+}
+
+input[aria-invalid="true"]{
+    background-image: url('images/icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    border: 1px solid var(--red-400);
+}
+
+.form__input:focus-visible{
+    outline: none;
+    border-color: var(--purple-700);
+}
+
+.form button{
+    background-color: var(--green-400);
+    border: none;
+    border-radius: .5rem;
+    box-shadow: inset 0 -4px 0 hsl(0 0% 0% / 0.1);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.form button:hover, .form button:focus-visible{
+    background-color: hsl(154, 90%, 65%);
+}
+
+.terms{
+    color: var(--purple-350);
+    font-weight: 600;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.terms__link{
+    color: var(--red-400);
+    text-decoration: none;
+}
+
+.terms__link:hover, .terms__link:focus-visible{
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 1280px){
+    body{
+        background-image: url("images/bg-intro-desktop.png");
+    }
+
+    main{
+        max-width: 70rem;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 0rem 4rem;
+        min-height: 100vh;
+    }
+
+    .header__content{
+        grid-row: span 2;
+        grid-column: 1;
+        text-align: left;
+    }
+
+    .header__title{
+        font-size: 3rem;
+    }
+
+    .header__text{
+        max-width: 35rem;
+    }
+
+    .price-box p{
+        max-width: none;
+    }
+
+    .form-box{
+        grid-row: span 2;
+        grid-column: 2;
+        max-width: 35rem;
+        margin: auto;
+    }
+}
