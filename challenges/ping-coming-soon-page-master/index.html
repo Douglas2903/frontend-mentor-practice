@@ -1,32 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Ping coming soon page</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@300;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  We are launching soon!
-
-  Subscribe and get notified
-
-  Notify Me
-
-  &copy; Copyright Ping. All rights reserved.
-
-      <footer class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+    <title>Frontend Mentor | Ping coming soon page</title>
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="images/logo.svg"
+        alt="Ping"
+        width="86"
+        height="26"
+        class="header__logo"
+      />
+    </header>
+    <main class="main">
+      <div class="hero">
+        <h1 class="hero__title">We are launching <strong>soon!</strong></h1>
+        <p class="hero__text">Subscribe and get notified</p>
+        <form class="subscribe" novalidate>
+          <div class="subscribe__field">
+            <label for="userEmail" class="sr-only">Email:</label>
+            <input
+              type="email"
+              name="userEmail"
+              id="userEmail"
+              placeholder="Your email address..."
+              class="subscribe__input"
+              aria-describedby="emailInput__error"
+              required
+            />
+            <p id="emailInput__error" class="subscribe__error"></p>
+          </div>
+          <button type="submit" class="subscribe__button">Notify Me</button>
+        </form>
+      </div>
+      <div class="illustration">
+        <img
+          src="images/illustration-dashboard.png"
+          alt=""
+          width="1280"
+          height="782"
+          class="illustration__img"
+        />
+      </div>
+    </main>
+    <footer class="footer">
+      <ul class="social">
+        <li>
+          <a href="#" class="social__link"
+            ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
+            ><span class="sr-only">Facebook</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="social__link"
+            ><i class="fa-brands fa-twitter" aria-hidden="true"></i
+            ><span class="sr-only">Twitter</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="social__link"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+            ><span class="sr-only">Instagram</span></a
+          >
+        </li>
+      </ul>
+      <p class="footer__copyright">
+        &copy; Copyright Ping. All rights reserved.
+      </p>
     </footer>
-</body>
+  </body>
 </html>
